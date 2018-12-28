@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Home from './pages/Home'
+import Login from './pages/Login'
+
 
 class App extends Component {
-	render() {
-		return (
-		<div className="App">
-			<header className="App-header">
-			<img src="https://www.tibiawiki.com.br/images/7/76/Tibia_icon.png" className="App-logo" alt="logo" />
-			<p>
-				Tibia Finder	
-			</p>
-			</header>
-		</div>
-		);
-	}
+  render() {
+    return (
+		<Router>
+            <Switch>  
+                <Route path="/home" component={Home}>
+                </Route>
+				<Route exact path="/login" component={Login}>
+                </Route>
+                <Route component={Home}>
+                </Route>
+            </Switch>
+        </Router>
+    );
+  }
 }
 
 export default App;
